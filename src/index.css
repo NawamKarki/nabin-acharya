@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* custom simple fade-in utilities */
+@layer utilities {
+  .fade-in {
+    opacity: 0;
+    transform: translateY(8px);
+    animation: fadeIn 900ms ease forwards;
+  }
+  .fade-in-delay-200 {
+    animation-delay: 0.2s;
+  }
+  .fade-in-delay-300 {
+    animation-delay: 0.3s;
+  }
+  .fade-in-delay-400 {
+    animation-delay: 0.4s;
+  }
+  .font-montserrat {
+    font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial;
+  }
+  .font-lato {
+    font-family: Lato, "Helvetica Neue", Arial, sans-serif;
+  }
+}
+
+@layer base {
+  /* set Montserrat as the default for main texts */
+  body {
+    font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+      Roboto, "Helvetica Neue", Arial;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
