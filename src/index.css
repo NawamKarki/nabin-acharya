@@ -33,6 +33,16 @@
     font-family: Montserrat, ui-sans-serif, system-ui, -apple-system, "Segoe UI",
       Roboto, "Helvetica Neue", Arial;
   }
+
+  /* Smooth in-page scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Ensure anchored sections don't hide under the fixed nav */
+  section {
+    scroll-margin-top: 5rem; /* adjust if your nav height changes */
+  }
 }
 
 @keyframes fadeIn {

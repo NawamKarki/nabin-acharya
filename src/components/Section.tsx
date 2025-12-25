@@ -16,51 +16,148 @@ const Section: React.FC = () => {
   }, []);
 
   return (
-    <section
-      className="relative z-30 flex min-h-screen items-center justify-center"
-      aria-labelledby="hero-heading"
-    >
-      {/* Background video (local) */}
-      <video
-        ref={videoRef}
-        className="pointer-events-none absolute inset-0 h-full w-full object-cover"
-        src={bgVideo}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        aria-hidden="true"
-        // ensure it's visually behind content
-        style={{ zIndex: -1 }}
-      />
+    <>
+      {/* Hero section with background video */}
+      <section
+        className="relative flex min-h-screen items-center justify-center overflow-hidden bg-black px-6 text-center"
+        aria-labelledby="hero-heading"
+      >
+        {/* Background video */}
+        <video
+          ref={videoRef}
+          className="absolute inset-0 h-full w-full object-cover opacity-30"
+          src={bgVideo}
+          autoPlay
+          loop
+          muted
+          playsInline
+        ></video>
 
-      {/* Dim overlay so text is readable */}
-      <div className="absolute inset-0 bg-black/75" />
-
-      <div className="px-6 text-center">
-        <h1
-          id="hero-heading"
-          className="fade-in font-montserrat text-4xl tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
-        >
-          NABIN ACHARYA
-        </h1>
-        <p className="fade-in fade-in-delay-200 mt-4 font-lato text-lg font-thin text-white/90 sm:text-xl md:text-2xl">
-          Turning listings into lifelong homes — personalised, local, and
-          trusted.
-        </p>
-
-        <div className="fade-in fade-in-delay-400 mt-8">
-          <a
-            href="#contact"
-            className="inline-block border border-white bg-black/50 px-6 py-3 font-thin text-white shadow-lg transition-colors duration-200 ease-in-out hover:border-primary hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
-            aria-label="Get a free appraisal"
+        {/* Overlay content */}
+        <div className="relative z-10 max-w-3xl space-y-6">
+          <h1
+            id="hero-heading"
+            className="fade-in font-montserrat text-4xl tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
           >
-            Get a free Appraisal
-          </a>
+            NABIN ACHARYA
+          </h1>
+          <p className="fade-in fade-in-delay-200 mt-4 font-montserrat text-sm font-thin text-white/60 sm:text-xl md:text-xl">
+            {"Licensed Sales Consultant | Harcourts Wigram".toUpperCase()}
+          </p>
+          <p className="fade-in fade-in-delay-400 mt-4 font-lato text-sm font-thin text-white/90 sm:text-xl md:text-xl">
+            Turning listings into lifelong homes — personalised, local, and
+            trusted.
+          </p>
+
+          <div className="fade-in fade-in-delay-400 mt-8">
+            <a
+              href="mailto:nabin.acharya@harcourts.co.nz"
+              className="inline-block border border-white bg-black/50 px-6 py-3 font-thin text-white shadow-lg transition-colors duration-200 ease-in-out hover:border-primary hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+              aria-label="Get a free appraisal"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="mr-3 inline-block h-4 w-4 flex-shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 12h6M9 16h6M13 8h-2V6h2v2zM21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7"
+                />
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
+                />
+              </svg>
+              <span>Get a free Appraisal</span>
+            </a>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      {/* About / Sales pitch section */}
+      <section
+        id="about"
+        className="bg-white/5 py-16"
+        aria-labelledby="about-heading"
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="grid gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <h2
+                id="about-heading"
+                className="font-montserrat text-2xl font-thin text-white"
+              >
+                Together Better
+              </h2>
+              <p className="mt-4 font-lato font-thin text-white/85">
+                I believe in total clarity from the very first conversation. I
+                set realistic expectations up front and keep you informed with
+                frequent, honest communication. I follow through on every
+                promise and give 100% effort to every job — every time.
+              </p>
+              <p className="mt-4 font-lato font-thin text-white/85">
+                If you’re thinking of selling, I bring award-winning experience
+                and a proven record of delivering premium results. My approach
+                is personalised and focused on achieving the best possible
+                outcome for your property.
+              </p>
+              <p className="mt-4 font-lato font-thin text-white/85">
+                I craft bespoke marketing plans for each client to attract the
+                right buyers and drive premium offers in the shortest possible
+                timeframe.
+              </p>
+              <p className="mt-4 font-lato font-thin text-white/90">
+                If you’d like to explore your options or know what your
+                Christchurch property could be worth, let's talk or request a
+                free property appraisal — I’ll put together a personalised plan
+                to get the best result, quickly.
+              </p>
+            </div>
+
+            <div className="flex items-center justify-center">
+              {/* Image: place your portrait at src/images/portrait.jpg */}
+              <img
+                src="/src/images/nabin.webp"
+                alt="Portrait of Nabin Acharya"
+                className="h-100 object-cover shadow-xl"
+              />
+            </div>
+          </div>
+          <div className="mt-6 flex items-center">
+            <a
+              href="tel:+64279593979"
+              className="inline-flex items-center gap-3 border border-white bg-black/50 px-6 py-3 font-thin text-white shadow-lg transition-colors duration-200 ease-in-out hover:border-primary hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
+              aria-label="Call to talk"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-4 w-4"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3.09 4.18 2 2 0 0 1 5.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.77 3.54a2 2 0 0 1-.45 2L9.91 11.09a16 16 0 0 0 6 6l1.83-1.83a2 2 0 0 1 2-.45c1.15.38 2.33.64 3.54.77A2 2 0 0 1 22 16.92z"
+                />
+              </svg>
+              <span>Let's talk</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
   );
 };
 
