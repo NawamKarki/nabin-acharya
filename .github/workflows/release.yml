@@ -6,9 +6,8 @@ on:
 
 # Minimum permissions required for Pages deployment
 permissions:
-  contents: read
+  contents: write
   pages: write
-  id-token: write
 
 jobs:
   build:
@@ -30,12 +29,11 @@ jobs:
       - name: Run build
         run: npm run build
 
-      # Upload the build to the GitHub Pages artifact storage (uses repo Pages settings)
-      - name: Upload artifact for GitHub Pages
-        uses: actions/upload-pages-artifact@v1
+      # Deploy to GitHub Pages by pushing the `dist` directory to the gh-pages branch.
+      # This avoids the deprecated internal upload-artifact usage.
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          path: ./dist
-
-      # Deploy the uploaded artifact to GitHub Pages according to repo settings
-      - name: Deploy to GitHub Pages
-        uses: actions/deploy-pages@v1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
