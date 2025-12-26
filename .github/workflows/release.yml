@@ -4,9 +4,15 @@ on:
   push:
     branches: [main]
 
+# Minimum permissions required for Pages deployment
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
 jobs:
   build:
-    name: Build
+    name: Build & Deploy to GitHub Pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -24,8 +30,12 @@ jobs:
       - name: Run build
         run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      # Upload the build to the GitHub Pages artifact storage (uses repo Pages settings)
+      - name: Upload artifact for GitHub Pages
+        uses: actions/upload-pages-artifact@v1
         with:
-          name: site-build
-          path: dist
+          path: ./dist
+
+      # Deploy the uploaded artifact to GitHub Pages according to repo settings
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v1
