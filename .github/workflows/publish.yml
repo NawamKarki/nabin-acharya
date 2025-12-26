@@ -1,0 +1,47 @@
+name: Publish to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+# Permissions required to push to gh-pages via the workflow
+permissions:
+  contents: write
+  pages: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    name: Build and deploy to gh-pages
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci 2>&1 | tee npm-install.log
+
+      - name: Build
+        run: npm run build 2>&1 | tee build.log
+
+      - name: Upload build logs
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-logs
+          path: |
+            npm-install.log
+            build.log
+
+      - name: Deploy to gh-pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          publish_branch: gh-pages
+          # optional: keep files from previous deploys
+          keep_history: false
