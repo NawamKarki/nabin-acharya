@@ -55,28 +55,7 @@ const Section: React.FC = () => {
               className="inline-block border border-white bg-black/50 px-6 py-3 font-thin text-white shadow-lg transition-colors duration-200 ease-in-out hover:border-primary hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
               aria-label="Get a free appraisal"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="mr-3 inline-block h-4 w-4 flex-shrink-0"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 12h6M9 16h6M13 8h-2V6h2v2zM21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M7 8V6a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2"
-                />
-              </svg>
-              <span>Get a free Appraisal</span>
+              Get a free Appraisal
             </a>
           </div>
         </div>
