@@ -42,10 +42,10 @@ const Section: React.FC = () => {
           >
             NABIN ACHARYA
           </h1>
-          <p className="fade-in fade-in-delay-200 mt-4 font-montserrat text-sm font-thin text-white/60 sm:text-xl md:text-xl">
+          <p className="fade-in fade-in-delay-200 mt-4 font-montserrat text-xs font-thin text-white/60 sm:text-xl md:text-xl">
             {"Licensed Sales Consultant | Harcourts Wigram".toUpperCase()}
           </p>
-          <p className="fade-in fade-in-delay-400 mt-4 font-lato text-sm font-thin text-white/90 sm:text-xl md:text-xl">
+          <p className="fade-in fade-in-delay-400 mt-4 font-lato text-xs font-thin text-white/90 sm:text-xl md:text-xl">
             Turning listings into lifelong homes — personalised, local, and
             trusted.
           </p>
@@ -104,12 +104,12 @@ const Section: React.FC = () => {
 
             <div className="flex items-center justify-center">
               {/* Image: place your portrait at src/images/portrait.jpg */}
-                <img
-                  src={portrait}
-                  alt="Portrait of Nabin Acharya"
-                  className="h-100 object-cover shadow-xl"
-                  loading="lazy"
-                />
+              <img
+                src={portrait}
+                alt="Portrait of Nabin Acharya"
+                className="h-100 object-cover shadow-xl"
+                loading="lazy"
+              />
             </div>
           </div>
           <div className="mt-6 flex items-center">
