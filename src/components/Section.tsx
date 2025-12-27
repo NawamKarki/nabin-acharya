@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from "react";
 import bgVideo from "../videos/nabin.mp4";
+import portrait from "../images/nabin.webp";
 
 const Section: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
@@ -103,11 +104,12 @@ const Section: React.FC = () => {
 
             <div className="flex items-center justify-center">
               {/* Image: place your portrait at src/images/portrait.jpg */}
-              <img
-                src="/src/images/nabin.webp"
-                alt="Portrait of Nabin Acharya"
-                className="h-100 object-cover shadow-xl"
-              />
+                <img
+                  src={portrait}
+                  alt="Portrait of Nabin Acharya"
+                  className="h-100 object-cover shadow-xl"
+                  loading="lazy"
+                />
             </div>
           </div>
           <div className="mt-6 flex items-center">
