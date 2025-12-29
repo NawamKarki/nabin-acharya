@@ -27,7 +27,7 @@
   }
   /* preloader line grow animation */
   .grow-line {
-    animation: growLine 3s linear forwards;
+    animation: growLine 1s linear forwards;
   }
 }
 
