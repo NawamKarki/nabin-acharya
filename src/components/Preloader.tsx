@@ -16,12 +16,12 @@ const Preloader: React.FC = () => {
     }
 
     // Minimum 3s illusion
-    const t = setTimeout(() => setMinDone(true), 3000);
+    const t = setTimeout(() => setMinDone(true), 1000);
     // Safety fallback: force hide after 15s
     const fallback = setTimeout(() => {
       setVideoReady(true);
       setMinDone(true);
-    }, 15000);
+    }, 3000);
 
     const onVideoReady = () => setVideoReady(true);
     window.addEventListener("app:video-ready", onVideoReady as EventListener);
