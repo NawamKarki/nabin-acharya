@@ -25,6 +25,10 @@
   .font-lato {
     font-family: Lato, "Helvetica Neue", Arial, sans-serif;
   }
+  /* preloader line grow animation */
+  .grow-line {
+    animation: growLine 3s linear forwards;
+  }
 }
 
 @layer base {
@@ -42,6 +46,15 @@
   /* Ensure anchored sections don't hide under the fixed nav */
   section {
     scroll-margin-top: 5rem; /* adjust if your nav height changes */
+  }
+}
+
+@keyframes growLine {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
   }
 }
 

@@ -5,15 +5,37 @@ import portrait from "../images/nabin.webp";
 const Section: React.FC = () => {
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
+  // Start playback only after preloader closes. Also set playbackRate then.
   useEffect(() => {
-    if (videoRef.current) {
-      try {
-        videoRef.current.playbackRate = 0.65;
-      } catch (e) {
-        // ignore if setting playbackRate is not supported
-        // console.warn('Unable to set playbackRate', e);
+    const startVideo = () => {
+      if (videoRef.current) {
+        try {
+          videoRef.current.playbackRate = 0.65;
+        } catch (e) {
+          // ignore
+        }
+        videoRef.current.play().catch(() => {
+          /* ignore play errors */
+        });
       }
+    };
+
+    const onPreloaderClosed = () => startVideo();
+    window.addEventListener(
+      "app:preloader-closed",
+      onPreloaderClosed as EventListener
+    );
+
+    // If video element already ready (preloader likely skipped), start immediately
+    if (videoRef.current && videoRef.current.readyState >= 3) {
+      startVideo();
     }
+
+    return () =>
+      window.removeEventListener(
+        "app:preloader-closed",
+        onPreloaderClosed as EventListener
+      );
   }, []);
 
   return (
@@ -28,10 +50,15 @@ const Section: React.FC = () => {
           ref={videoRef}
           className="absolute inset-0 h-full w-full object-cover opacity-30"
           src={bgVideo}
-          autoPlay
           loop
           muted
           playsInline
+          onLoadedData={() =>
+            window.dispatchEvent(new CustomEvent("app:video-ready"))
+          }
+          onCanPlayThrough={() =>
+            window.dispatchEvent(new CustomEvent("app:video-ready"))
+          }
         ></video>
 
         {/* Overlay content */}
