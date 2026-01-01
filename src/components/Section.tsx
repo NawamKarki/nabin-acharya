@@ -141,7 +141,7 @@ const Section: React.FC = () => {
           </div>
           <div className="mt-6 flex items-center">
             <a
-              href="tel:+64279593979"
+              href="tel:+64225603752"
               className="inline-flex items-center gap-3 border border-white bg-black/50 px-6 py-3 font-thin text-white shadow-lg transition-colors duration-200 ease-in-out hover:border-primary hover:bg-primary focus:outline-none focus:ring-2 focus:ring-primary/30"
               aria-label="Call to talk"
             >

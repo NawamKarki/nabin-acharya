@@ -23,7 +23,7 @@ const Footer: React.FC = () => {
           {/* Right: contact links (phone, email, appraisal) */}
           <div className="flex flex-col items-start justify-center gap-6 md:items-end">
             <a
-              href="tel:+64279593979"
+              href="tel:+64225603752"
               className="inline-flex items-center gap-3 font-lato font-thin text-white no-underline hover:text-primary"
               aria-label="Call Nabin"
             >
@@ -42,7 +42,7 @@ const Footer: React.FC = () => {
                   d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3.09 4.18 2 2 0 0 1 5.11 2h3a2 2 0 0 1 2 1.72c.12 1.21.38 2.4.77 3.54a2 2 0 0 1-.45 2L9.91 11.09a16 16 0 0 0 6 6l1.83-1.83a2 2 0 0 1 2-.45c1.15.38 2.33.64 3.54.77A2 2 0 0 1 22 16.92z"
                 />
               </svg>
-              <span className="text-sm">027 959 3979</span>
+              <span className="text-sm">022 560 3752</span>
             </a>
 
             <a
